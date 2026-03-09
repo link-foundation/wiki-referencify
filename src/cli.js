@@ -4,7 +4,7 @@
  * A tool to cover most concepts/terms in a markdown document with links to Wikipedia
  */
 
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 import { makeConfig } from 'lino-arguments';
 import { referencify } from './referencify.js';
 
