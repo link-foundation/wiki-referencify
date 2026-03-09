@@ -8,7 +8,15 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 const WIKIPEDIA_API_BASE = 'https://en.wikipedia.org/w/api.php';
-const CACHE_DIR = join(tmpdir(), 'wiki-referencify-cache');
+const CACHE_SUBDIR = 'wiki-referencify-cache';
+
+/**
+ * Get cache directory path (lazy, computed on first use)
+ * @returns {string} Cache directory path
+ */
+function getCacheDir() {
+  return join(tmpdir(), CACHE_SUBDIR);
+}
 
 /**
  * Get cache file path for a given cache key
@@ -17,7 +25,7 @@ const CACHE_DIR = join(tmpdir(), 'wiki-referencify-cache');
  */
 function getCacheFilePath(key) {
   const hash = createHash('sha256').update(key).digest('hex').slice(0, 16);
-  return join(CACHE_DIR, `${hash}.json`);
+  return join(getCacheDir(), `${hash}.json`);
 }
 
 /**
@@ -45,8 +53,9 @@ function readCache(key) {
  */
 function writeCache(key, value) {
   try {
-    if (!existsSync(CACHE_DIR)) {
-      mkdirSync(CACHE_DIR, { recursive: true });
+    const cacheDir = getCacheDir();
+    if (!existsSync(cacheDir)) {
+      mkdirSync(cacheDir, { recursive: true });
     }
     const filePath = getCacheFilePath(key);
     writeFileSync(filePath, JSON.stringify({ key, value }), 'utf-8');
