@@ -1,10 +1,13 @@
 {
-  "name": "my-package",
+  "name": "wiki-referencify",
   "version": "0.6.0",
-  "description": "A JavaScript/TypeScript package template for AI-driven development",
+  "description": "A tool to cover most concepts/terms in a markdown document with links to Wikipedia",
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "bin": {
+    "wiki-referencify": "src/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./src/index.d.ts",
@@ -26,16 +29,17 @@
     "changeset:status": "changeset status --since=origin/main"
   },
   "keywords": [
-    "template",
-    "javascript",
-    "typescript",
-    "ai-driven"
+    "wikipedia",
+    "markdown",
+    "cli",
+    "references",
+    "links"
   ],
   "author": "",
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "https://github.com/link-foundation/js-ai-driven-development-pipeline-template"
+    "url": "https://github.com/link-foundation/wiki-referencify"
   },
   "engines": {
     "node": ">=20.0.0"
@@ -61,5 +65,8 @@
       "prettier --write",
       "prettier --check"
     ]
+  },
+  "dependencies": {
+    "lino-arguments": "^0.2.5"
   }
 }
