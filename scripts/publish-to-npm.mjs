@@ -31,8 +31,7 @@ import {
   parseJsRootConfig,
 } from './js-paths.mjs';
 
-// TODO: Update this to match your package name in package.json
-const PACKAGE_NAME = 'my-package';
+const PACKAGE_NAME = 'wiki-referencify';
 
 // Load use-m dynamically
 const { use } = eval(
