@@ -1,6 +1,6 @@
 {
   "name": "wiki-referencify",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "A tool to cover most concepts/terms in a markdown document with links to Wikipedia",
   "type": "module",
   "main": "src/index.js",
