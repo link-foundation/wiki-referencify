@@ -20,6 +20,9 @@ export default [
         Buffer: 'readonly',
         __dirname: 'readonly',
         __filename: 'readonly',
+        // Node.js 10+ globals
+        URLSearchParams: 'readonly',
+        URL: 'readonly',
         // Node.js 18+ globals
         fetch: 'readonly',
         AbortController: 'readonly',
